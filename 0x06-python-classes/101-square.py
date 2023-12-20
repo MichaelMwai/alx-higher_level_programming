@@ -1,22 +1,22 @@
 #!/usr/bin/python3
-"""Square class defination"""
+"""Square class defination."""
 
 
 class Square:
     """Square class body"""
 
     def __init__(self, size=0, position=(0, 0)):
-        """Square constructor .
+        """Square constructor.
         Args:
             size (int): The size of the new square.
-            square position (int, int): of Tupple.
+            position (int, int): The position of the new square.
         """
         self.size = size
         self.position = position
 
     @property
     def size(self):
-        """Setter and getter of a  square."""
+        """Getter and Setter of  the current size of the square."""
         return (self.__size)
 
     @size.setter
@@ -29,7 +29,7 @@ class Square:
 
     @property
     def position(self):
-        """Getter and Setter for position of the square."""
+        """Gett5er and Setter of  the current position of the square."""
         return (self.__position)
 
     @position.setter
@@ -42,11 +42,11 @@ class Square:
         self.__position = value
 
     def area(self):
-        """Return new area of the square."""
+        """Return the current area of the square."""
         return (self.__size * self.__size)
 
     def my_print(self):
-        """Print the stdout the square with the character."""
+        """Print the square with the # character."""
         if self.__size == 0:
             print("")
             return
@@ -56,3 +56,14 @@ class Square:
             [print(" ", end="") for j in range(0, self.__position[0])]
             [print("#", end="") for k in range(0, self.__size)]
             print("")
+
+    def __str__(self):
+        """Define the print() representation of a Square."""
+        if self.__size != 0:
+            [print("") for i in range(0, self.__position[1])]
+        for i in range(0, self.__size):
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for k in range(0, self.__size)]
+            if i != self.__size - 1:
+                print("")
+        return ("")
